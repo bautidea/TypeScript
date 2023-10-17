@@ -15,3 +15,10 @@ let pair = new KeyValuePair(1, 'Apple');
 class StringKeyValuePair {
   constructor(public key: string, public value: string) {}
 }
+
+// And we can use it here
+let strPair = new StringKeyValuePair('2', 'orange');
+// The problem with this implementation is that it's redundant, if somewhere else in the app,
+// if we want to use an object as 'value' instead of a string, then again we will have to create yet again another kind
+// of 'keyValuePair' class. We wold have to constantly create new classes.
+// So we need a generic or a common and reusable solution.
