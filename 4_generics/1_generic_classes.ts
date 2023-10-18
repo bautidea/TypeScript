@@ -22,3 +22,23 @@ let strPair = new StringKeyValuePair('2', 'orange');
 // if we want to use an object as 'value' instead of a string, then again we will have to create yet again another kind
 // of 'keyValuePair' class. We wold have to constantly create new classes.
 // So we need a generic or a common and reusable solution.
+
+// Lets see how we can use a generic class to solve this problem, right after the class name we type angle brackets, and inside them
+// we type one or more generic parameters.
+// We use the letter T as short for 'Templates'
+class GenericKeyValuePair<Tkey, Tvalue> {
+  constructor(public key: Tkey, public value: Tvalue) {}
+}
+// When we create a KeyValuePair object, we type angle brackets once again, here we pass the type of value we are going to pass
+// to the function.
+let genericPair = new GenericKeyValuePair<number, string>(10, 'Potatoe');
+// Now if we use dot notation we will be able to see all the methods for the secified type.
+genericPair.key.toExponential();
+genericPair.value.toLowerCase();
+
+//* If we dont specify the type generic type argument, the compiler can infere the type of the key and the value.
+//! Most of the time we dont have to expicitly supply generic type arguments.
+let genericPair2 = new GenericKeyValuePair(10, 'Potatoe');
+
+genericPair2.key.toExponential();
+genericPair2.value.toLowerCase();
