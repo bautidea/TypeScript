@@ -18,6 +18,16 @@ interface Product {
 // and make them read only.
 // We cannot use interfaces, we need to use type aliases.
 type ReadOnlyProduct = {
-  // We are going to us 'Index Signature' and the 'keyof' operator.
-  // Instead of hardcoding the properties we are going to use index signature syntax to dynamically add properties.
+  // We are going to use:
+  // 'Index Signature' to dynamically add properties, instead of hardcoding them.
+  // and the 'keyof' operator to dynamically get the properties of the Product type.
+  readonly [Property in keyof Product]: Product[Property];
 };
+
+// If we create a product object of type ReadOnlyProduct
+let product: ReadOnlyProduct = {
+  name: 'a',
+  price: 1,
+};
+// We wont be able to change any of these properties
+product.name = 'o'; // --> Compilation error.
