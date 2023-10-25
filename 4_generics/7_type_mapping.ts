@@ -31,3 +31,28 @@ let product: ReadOnlyProduct = {
 };
 // We wont be able to change any of these properties
 product.name = 'o'; // --> Compilation error.
+
+// What if we need another type of read only object? like a read only customer
+// We are going to use generic type.
+type ReadOnly<T> = {
+  readonly [Property in keyof T]: T[Property];
+};
+// Now we can create any kind of read only object
+let newProduct: ReadOnly<Product> = {
+  name: 'a',
+  price: 1,
+};
+
+//* We can create a product type with optional properties.
+// To make properties optional we append a question mark at the end
+type Optional<T> = {
+  [K in keyof T]?: T[K];
+};
+
+//* Similarly we can another type, and make each property nullable
+type Nullable<T> = {
+  [K in keyof T]: T[K] | null;
+};
+
+//! Because this types are really usefull, they are actualli built into TS.
+// https://www.typescriptlang.org/docs/handbook/utility-types.html
