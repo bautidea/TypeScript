@@ -4,7 +4,7 @@
 // Here we have a compile error becouse TS doesnt have this component or any built in decorators,
 // we have to create our own (Frameworks like Angular or vue comes with a bounch of built-in decorators).
 @Component
-class ProfileComponent {}
+class ProfileComponent0 {}
 
 // Under the hood decorators are functions that gets called by the JS runtime. The JS runtime or the
 // JS engine that executes our code is going to call that function and pass our class to it.
