@@ -1,8 +1,8 @@
 // Somtimes we need to pass arguments to our decorators, lets see how we can create parameterised decorators.
-type ComponentOptions = {
+type ComponentOptions3 = {
   selector: string;
 };
-function Component(options: ComponentOptions) {
+function Component(options: ComponentOptions3) {
   // In this function we are going to return a decorator function, using an arrow function syntax.
   // This is called a Decorator Factory.
   return (constructor: Function) => {
