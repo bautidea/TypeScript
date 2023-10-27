@@ -47,5 +47,5 @@ class User7 {
 let user7 = new User7('1234');
 console.log(user7.password); // --> 1234
 
-let user7b = new User7('123');
-console.log(user7b.password); // --> password should be at least 4 character long.
+user7.password = '123'; // --> password should be at least 4 character long.
+//* Every time we set the property password the decorator gets called and validates the new value.
