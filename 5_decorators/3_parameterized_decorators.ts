@@ -1,8 +1,8 @@
-// Somtimes we need to pass arguments to our decorators, lets see how we can create parameterised decorators.
+// Somtimes we need to pass arguments to our decorators, lets see how we can create parameterized decorators.
 type ComponentOptions3 = {
   selector: string;
 };
-function Component(options: ComponentOptions3) {
+function Component3(options: ComponentOptions3) {
   // In this function we are going to return a decorator function, using an arrow function syntax.
   // This is called a Decorator Factory.
   return (constructor: Function) => {
@@ -10,7 +10,7 @@ function Component(options: ComponentOptions3) {
 
     constructor.prototype.uniqueId = Date.now();
 
-    constructor.prototype.insertinDOM = () => {
+    constructor.prototype.insertInDOM = () => {
       console.log('Inserting the component in the DOM');
     };
 
@@ -20,5 +20,5 @@ function Component(options: ComponentOptions3) {
 }
 
 // Passing an object as an argument of the decorator
-@Component({ selector: '#my-profile' })
+@Component3({ selector: '#my-profile' })
 class ProfileComponent3 {}
